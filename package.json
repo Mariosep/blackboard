@@ -1,0 +1,11 @@
+{
+  "name": "com.mariosep.blackboard",
+  "version": "1.0.0",
+  "displayName": "Blackboard",
+  "description": "This is an example package",
+  "author": {
+    "name": "Mario Sepulveda Cornejo",
+    "email": "mariosep28@gmail.com",
+    "url": "https://gitlab.com/mariosep28"
+  }
+}

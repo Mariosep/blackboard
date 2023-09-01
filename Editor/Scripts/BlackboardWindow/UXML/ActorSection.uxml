@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <SplitView fixed-pane-initial-dimension="250" style="display: flex;">
+        <GroupSelectorView style="width: 250px; min-width: 200px;" />
+        <ActorsView style="min-width: 500px;" />
+    </SplitView>
+</ui:UXML>

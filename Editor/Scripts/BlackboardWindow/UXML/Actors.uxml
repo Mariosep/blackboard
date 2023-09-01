@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <GroupHeaderView />
+    <ui:VisualElement name="actors__container" class="facts__container" />
+    <ui:VisualElement name="actors__buttons" class="blackboard__buttons" style="flex-shrink: 0;">
+        <ui:Button text="-" display-tooltip-when-elided="true" name="remove-actor__button" class="blackboard__button" />
+        <ui:Button text="+" display-tooltip-when-elided="true" name="add-actor__button" class="blackboard__button" />
+    </ui:VisualElement>
+</ui:UXML>
