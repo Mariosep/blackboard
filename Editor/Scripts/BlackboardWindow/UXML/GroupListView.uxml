@@ -1,4 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Blackboard/Scripts/Editor/BlackboardWindow/USS/GroupListStyles.uss?fileID=7433441132597879392&amp;guid=54b518b4b91010346b9580e7ed1492bd&amp;type=3#GroupListStyles" />
-    <ui:ListView focusable="true" virtualization-method="FixedHeight" name="ListView" reorderable="false" fixed-item-height="22" />
-</ui:UXML>

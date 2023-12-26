@@ -1,9 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/Blackboard/Scripts/Editor/BlackboardWindow/USS/BlackboardStyle.uss?fileID=7433441132597879392&amp;guid=81f09a8fedac6ba4ba216772462a7d6b&amp;type=3#BlackboardStyle" />
-    <BlackboardHeaderView />
-    <ui:VisualElement name="blackboard-sections__tab" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: center; margin-bottom: 10px; margin-left: 10px; margin-right: 10px;">
-        <ui:Button text="Facts" display-tooltip-when-elided="true" name="facts__tab-button" class="tab-button" style="width: 200px;" />
-        <ui:Button text="Events" display-tooltip-when-elided="true" name="events__tab-button" class="tab-button" style="width: 200px;" />
-    </ui:VisualElement>
-    <ui:VisualElement name="blackboard-section__content-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
-</ui:UXML>

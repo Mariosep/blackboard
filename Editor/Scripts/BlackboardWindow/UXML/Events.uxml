@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <GroupHeaderView />
-    <ui:VisualElement name="events__container" class="facts__container" style="flex-grow: 1;" />
-    <ui:VisualElement name="simulator-mode" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 20px; align-self: center;">
-        <ui:Button text="Enable Simulator Mode" display-tooltip-when-elided="true" name="simulator-mode__button" style="width: 150px; height: 30px;" />
-    </ui:VisualElement>
-</ui:UXML>
