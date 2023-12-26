@@ -5,7 +5,7 @@ public class EventActor : BlackboardEvent<EventActorSO, ActorSO>
 {
     public EventActor()
     {
-        eventType = BlackboardEventType.Actor;
+        eventType = EventType.Actor;
     }
     
     public override void AddListener(Action<ActorSO> listener)
@@ -18,5 +18,10 @@ public class EventActor : BlackboardEvent<EventActorSO, ActorSO>
     {
         eventSO.RemoveListener(OnEventInvoked);
         currentListener = null;
+    }
+
+    public override void Invoke(ActorSO argument)
+    {
+        eventSO.Invoke(argument);
     }
 }

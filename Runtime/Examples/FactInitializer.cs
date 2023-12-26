@@ -1,11 +1,11 @@
-using System;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 public static class FactInitializer
 {
-    public static Action onStart;
-    public static Action onExit;
+    public static System.Action onStart;
+    public static System.Action onExit;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void Setup()
@@ -25,3 +25,4 @@ public static class FactInitializer
         }
     }
 }
+#endif

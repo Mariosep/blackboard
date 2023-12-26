@@ -49,8 +49,10 @@ public class ItemDataBaseSO : ScriptableObject, IDataBase
 
     public void Save()
     {
+#if UNITY_EDITOR
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
+#endif
     }
 
     public bool GroupExists(string groupName)

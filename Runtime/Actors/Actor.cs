@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using UnityEngine;
 
 [Serializable]
@@ -8,4 +8,4 @@ public class Actor
     public string categoryId;
     
     [SerializeField] protected ActorSO actorData;
-}
+}*/

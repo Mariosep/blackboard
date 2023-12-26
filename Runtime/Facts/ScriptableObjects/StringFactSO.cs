@@ -6,8 +6,6 @@ public class StringFactSO : FactSO
 {
     public Action<string> onValueChanged;
 
-    public int hola;
-    
     [SerializeField] private string _value;
     
     public string Value
@@ -20,8 +18,9 @@ public class StringFactSO : FactSO
         }
     }
     
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         type = FactType.String;
     }
 }

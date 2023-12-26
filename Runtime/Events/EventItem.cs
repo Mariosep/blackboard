@@ -5,7 +5,7 @@ public class EventItem : BlackboardEvent<EventItemSO, ItemSO>
 {
     public EventItem()
     {
-        eventType = BlackboardEventType.Item;
+        eventType = EventType.Item;
     }
     
     public override void AddListener(Action<ItemSO> listener)
@@ -18,5 +18,10 @@ public class EventItem : BlackboardEvent<EventItemSO, ItemSO>
     {
         eventSO.RemoveListener(OnEventInvoked);
         currentListener = null;
+    }
+
+    public override void Invoke(ItemSO argument)
+    {
+        eventSO.Invoke(argument);
     }
 }

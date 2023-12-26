@@ -4,11 +4,11 @@ public class TriggerSoundFact : MonoBehaviour
 {
     public AudioClip clip;
     
-    public BoolFact boolFact;
+    public BoolFactSO boolFact;
 
     private void Start()
     {
-        if (boolFact.HasValue)
+        if (boolFact != null)
             boolFact.onValueChanged += TriggerSound;
     }
 

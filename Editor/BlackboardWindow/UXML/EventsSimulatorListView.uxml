@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:MultiColumnListView binding-path="facts" selection-type="Multiple" virtualization-method="DynamicHeight" reorder-mode="Animated" reorderable="true">
+        <ui:Columns>
+            <ui:Column name="name" title="Name" stretchable="true" />
+            <ui:Column name="argument" title="Argument" stretchable="true" />
+            <ui:Column name="type" title="Type" width="80" />
+            <ui:Column name="invoke" width="80" />
+        </ui:Columns>
+    </ui:MultiColumnListView>
+</ui:UXML>

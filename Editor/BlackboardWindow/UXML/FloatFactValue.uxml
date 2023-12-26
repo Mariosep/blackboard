@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="value-content" style="flex-grow: 1; flex-direction: row; align-items: center; justify-content: space-between; margin-left: 5px; margin-top: 0; margin-bottom: 0; margin-right: 2px; flex-shrink: 0;">
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="value-label" text="Value" style="flex-grow: 1; flex-shrink: 0; display: flex; width: 40%;" />
+        <ui:FloatField value="42,2" style="width: 60%; padding-right: 5px; padding-left: 0;" />
+    </ui:VisualElement>
+</ui:UXML>

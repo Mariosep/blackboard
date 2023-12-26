@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Blackboard/Scripts/Editor/BlackboardWindow/USS/CollectionStyle.uss?fileID=7433441132597879392&amp;guid=c2261c0312236134fb5a64d772013eb3&amp;type=3#CollectionStyle" />
+    <Style src="project://database/Assets/Scripts/Editor/USS/ListViewStyles.uss?fileID=7433441132597879392&amp;guid=5da86a4008fd95e4583a788f92d6b429&amp;type=3#ListViewStyles" />
+    <ui:VisualElement name="requirements-root" style="flex-grow: 1;">
+        <ui:VisualElement name="requirements__header">
+            <ui:Foldout text="Requirements" name="requirement-list-header__foldout" class="collection-header__foldout" />
+        </ui:VisualElement>
+        <ui:ListView focusable="true" show-add-remove-footer="true" name="requirements__content" show-border="true" virtualization-method="DynamicHeight" />
+    </ui:VisualElement>
+</ui:UXML>

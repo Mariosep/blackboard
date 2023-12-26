@@ -1,0 +1,107 @@
+#requirements__header {
+    background-color: rgb(53, 53, 53);
+    flex-grow: 0;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-left-color: rgb(35, 35, 35);
+    border-right-color: rgb(35, 35, 35);
+    border-top-color: rgb(35, 35, 35);
+    border-bottom-color: rgb(35, 35, 35);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+#requirements-header__title {
+    color: rgb(210, 210, 210);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#requirements-root {
+    margin-top: 5px;
+    margin-right: 0;
+    margin-bottom: 5px;
+    margin-left: 0;
+}
+
+#requirements__content {
+    flex-grow: 1;
+}
+
+#requirement-root {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    flex-direction: row;
+}
+
+#requirement-goal {
+    flex-direction: row;
+    margin-top: 0;
+    margin-right: 4px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+#comparison-operator {
+    margin-top: 0;
+    margin-right: 4px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+#blackboard-element {
+    max-width: 200px;
+}
+
+.collection-header__foldout {
+    color: rgb(210, 210, 210);
+    margin-left: 5px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.collection__header {
+    background-color: rgb(53, 53, 53);
+    flex-grow: 0;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-left-color: rgb(35, 35, 35);
+    border-right-color: rgb(35, 35, 35);
+    border-top-color: rgb(35, 35, 35);
+    border-bottom-color: rgb(35, 35, 35);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.collection__content {
+    flex-grow: 1;
+}
+
+.collection-root {
+    margin-top: 5px;
+    margin-right: 0;
+    margin-bottom: 5px;
+    margin-left: 0;
+}
+
+.element-root {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    flex-direction: column;
+}
+
+.unity-list-view__footer {
+    align-self: flex-start;
+    margin-left: 14px;
+}

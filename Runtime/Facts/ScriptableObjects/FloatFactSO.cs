@@ -18,8 +18,9 @@ public class FloatFactSO : FactSO
         }
     }
     
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         type = FactType.Float;
     }
 }

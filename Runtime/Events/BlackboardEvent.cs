@@ -8,7 +8,7 @@ public abstract class BlackboardEvent<T1, T2>
 {
     public string id;
     public string categoryId;
-    public BlackboardEventType eventType;
+    public EventType eventType;
     
     [SerializeField] protected T1 eventSO;
 
@@ -41,6 +41,8 @@ public abstract class BlackboardEvent<T1, T2>
     public abstract void AddListener(Action<T2> listener);
     public abstract void RemoveListener(Action<T2> listener);
 
+    public abstract void Invoke(T2 argument);
+    
     public void OnEventInvoked(T2 eventArg)
     {
         if (eventArg == arg)

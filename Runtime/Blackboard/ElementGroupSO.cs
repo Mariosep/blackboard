@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
@@ -45,12 +46,37 @@ public abstract class ElementGroupSO<T> : ScriptableObject where T : BlackboardE
         elementsDic[element.id] = element;
     }
     
-    public T GetElement(string id)
+    public T GetElementByID(string id)
     {
         if (elementsDic.TryGetValue(id, out T element))
             return element;
         else
             throw new Exception("Element is not registered in the blackboard");
+    }
+    
+    public T GetElementByName(string elementName)
+    {
+        var elements = elementsList.Where(e => e.theName == elementName).ToList(); 
+        
+        if (elements.Count > 0)
+            return elements[0];
+        else
+            throw new Exception("Element is not registered in the blackboard");
+    }
+    
+    public bool ContainsElementWithName(string elementName, T elementToIgnore = null)
+    {
+        var elements = elementsList.Where(e => e.theName == elementName).ToList();
+        
+        if (elementToIgnore != null && elements.Contains(elementToIgnore))
+            elements.Remove(elementToIgnore);
+
+        return elements.Count > 0;
+    }
+
+    public bool ContainsElement(T element)
+    {
+        return elementsList.Contains(element);
     }
     
     public bool TryGetElement(string id, out T element)

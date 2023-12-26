@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item", fileName = "Item")]
 public class ItemSO : BlackboardElementSO
 {
     public GameObject prefab;

@@ -25,8 +25,7 @@ public class EventDataBaseSO : ScriptableObject, IDataBase
         groupsList.Add(eventGroup);
         groupsDic.Add(eventGroup.id, eventGroup);
     }
-
-
+    
     public void RemoveGroup(string id)
     {
         if (groupsDic.TryGetValue(id, out EventGroupSO group))
@@ -47,12 +46,16 @@ public class EventDataBaseSO : ScriptableObject, IDataBase
     {
         return groupsList[index].id;
     }
-
+    
+    // TODO: Extract Save logic from ScriptableObject
     public void Save()
     {
+#if UNITY_EDITOR
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
+#endif
     }
+    
     
     public bool GroupExists(string groupName)
     {
@@ -73,7 +76,7 @@ public class EventDataBaseSO : ScriptableObject, IDataBase
             return false;
     }
     
-    public List<KeyValuePair<EventSO, string>> GetPairs(BlackboardEventType eventType)
+    public List<KeyValuePair<EventSO, string>> GetPairs(EventType eventType)
     {
         var pairs = new List<KeyValuePair<EventSO, string>>();
 

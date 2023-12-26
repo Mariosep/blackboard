@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public class EventGroupSO : ElementGroupSO<EventSO>
 {
-    public List<KeyValuePair<EventSO, string>> GetPairs(BlackboardEventType eventType)
+    public List<KeyValuePair<EventSO, string>> GetPairs(EventType eventType)
     {
         var pairs = new List<KeyValuePair<EventSO, string>>();
 

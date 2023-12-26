@@ -5,13 +5,13 @@ public class UICoins : MonoBehaviour
 {
     private TextMeshProUGUI coinsText;
 
-    public IntFact coinsFact;
+    public IntFactSO coinsFact;
     
     private void Awake()
     {
         coinsText = GetComponent<TextMeshProUGUI>();
         
-        if(coinsFact.HasValue)
+        if(coinsFact != null)
             OnCoinCollected(coinsFact.Value);
         
         coinsFact.onValueChanged += OnCoinCollected;

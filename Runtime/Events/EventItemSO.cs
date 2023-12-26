@@ -20,8 +20,9 @@ public class EventItemSO : EventSO
             listeners?.Invoke(item);
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
-        type = BlackboardEventType.Item;
+        base.OnEnable();
+        type = EventType.Item;
     }
 }

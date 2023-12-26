@@ -1,0 +1,31 @@
+.fact-icon {
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0);
+    display: none;
+    width: 16px;
+    height: 16px;
+}
+
+.event-icon {
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url('project://database/Assets/Sprites/Event%20icon.png?fileID=2800000&guid=39c5482abb4a21b478f27dcf8813c409&type=3#Event icon');
+    display: flex;
+    width: 16px;
+    height: 16px;
+}
+
+.actor-icon {
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url('project://database/Assets/Sprites/Actor%20icon.png?fileID=2800000&guid=47f3c65e8214a2a4ab3b42238a61cf9c&type=3#Actor icon');
+    display: flex;
+    width: 16px;
+    height: 16px;
+}
+
+.item-icon {
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url('project://database/Assets/Sprites/Item%20icon2.png?fileID=2800000&guid=b90264386db12b54d94b234ef87b38c8&type=3#Item icon2');
+    display: flex;
+    width: 16px;
+    height: 16px;
+}

@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Blackboard/Scripts/Editor/BlackboardWindow/USS/RequirementStyle.uss?fileID=7433441132597879392&amp;guid=c2261c0312236134fb5a64d772013eb3&amp;type=3#RequirementStyle" />
+    <ui:VisualElement name="requirement-goal" style="flex-grow: 1;">
+        <ui:Label tabindex="-1" text="with" parse-escape-sequences="true" display-tooltip-when-elided="true" name="with__label" style="display: none;" />
+        <BlackboardElementDropdown name="requirement-argument" />
+    </ui:VisualElement>
+</ui:UXML>

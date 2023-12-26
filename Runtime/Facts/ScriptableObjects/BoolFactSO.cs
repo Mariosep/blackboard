@@ -18,8 +18,9 @@ public class BoolFactSO : FactSO
         }
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         type = FactType.Bool;
     }
 }

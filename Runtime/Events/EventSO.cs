@@ -1,9 +1,9 @@
 public abstract class EventSO : BlackboardElementSO 
 {
-    public BlackboardEventType type;
+    public EventType type;
 }
 
-public enum BlackboardEventType
+public enum EventType
 {
     Actor,
     Item

@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Blackboard/Scripts/Editor/BlackboardWindow/USS/BlackboardStyle.uss?fileID=7433441132597879392&amp;guid=81f09a8fedac6ba4ba216772462a7d6b&amp;type=3#BlackboardStyle" />
+    <ui:VisualElement name="group-header" class="header" style="background-color: rgba(0, 0, 0, 0); flex-shrink: 0;">
+        <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="group-header__label" style="align-self: center; margin-bottom: 2px; margin-top: 3px; flex-shrink: 1; white-space: normal;" />
+        <ui:TextField picking-mode="Ignore" value="Y" name="group-header__field" style="display: none; margin-left: 2px;" />
+        <ui:Button display-tooltip-when-elided="true" name="group-edit__button" class="header__button">
+            <ui:VisualElement name="button_icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px;" />
+        </ui:Button>
+        <ui:Button display-tooltip-when-elided="true" name="group-edit__confirm__button" class="header__button" style="display: none;">
+            <ui:VisualElement name="button_icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px; display: flex; -unity-background-image-tint-color: rgb(255, 255, 255); background-image: url(&apos;project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=-6090568113533005507&amp;guid=5dd4c96d7fc3c5446b7f0519945bc28e&amp;type=3#check&apos;);" />
+        </ui:Button>
+        <ui:Button display-tooltip-when-elided="true" name="group-edit__cancel__button" class="header__button" style="-unity-background-scale-mode: scale-to-fit; background-image: none; display: none;">
+            <ui:VisualElement name="button_icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px;" />
+        </ui:Button>
+        <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="group-validation__label" style="padding-left: 5px; color: rgb(233, 60, 60); -unity-text-align: middle-left;" />
+    </ui:VisualElement>
+</ui:UXML>

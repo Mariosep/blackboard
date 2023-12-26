@@ -3,7 +3,7 @@ using System;
 public class EventActorSO : EventSO
 {
     public Action<ActorSO> listeners;
-    
+
     public void AddListener(Action<ActorSO> listener)
     {
         listeners += listener;
@@ -20,8 +20,9 @@ public class EventActorSO : EventSO
             listeners?.Invoke(actor);
     }
 
-    private void OnEnable()
+    public override void OnEnable()
     {
-        type = BlackboardEventType.Actor;
+        base.OnEnable();
+        type = EventType.Actor;
     }
 }

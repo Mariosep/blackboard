@@ -2,21 +2,30 @@ using UnityEngine;
 
 public class BlackboardTest : MonoBehaviour
 {
-    public BoolFact boolFact;
-    public IntFact intFact;
-    public FloatFact floatFact;
-    public StringFact stringFact;
+    [ShowValue]
+    public BoolFactSO boolFact;
+    [ShowValue]
+    public IntFactSO intFact;
+    public FloatFactSO floatFact;
+    
+    public StringFactSO stringFact;
+
+    public EventActorSO eventActorSo;
+    public EventItemSO eventItemSo;
+    public EventSO eventSo;
 
     public EventActor eventActor;
     public EventItem eventItem;
     
-    public Actor actor;
-    public Item item;
+    public ActorSO actor;
+    public ItemSO item;
+
+    public EventType eventType;
 
     private void Start()
     {
         boolFact.onValueChanged += OnBoolFactValueChanged;
-        intFact.onValueChanged += OnCoinCollected;
+        //intFact.onValueChanged += OnCoinCollected;
         
         if(eventActor.HasEvent)
             eventActor.AddListener(OnActorEventInvoked);
@@ -25,20 +34,20 @@ public class BlackboardTest : MonoBehaviour
     [ContextMenu("ToggleFactValue")]
     private void ToggleFactValue()
     {
-        if (boolFact.HasValue)
+        if (boolFact != null)
             boolFact.Value = !boolFact.Value;
     }
     
     [ContextMenu("IncrementFactValue")]
     private void IncrementFactValue()
     {
-        if (intFact.HasValue)
-            intFact.Value += 1;
+        /*if (intFact.HasValue)
+            intFact.Value += 1;*/
     }
 
     private void OnBoolFactValueChanged(bool value)
     {
-        Debug.Log($"Value changed to: {value}");
+        Debug.Log($"{boolFact.theName} changed to: {value}");
     }
     
     private void OnCoinCollected(int coinsCount)
