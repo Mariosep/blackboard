@@ -1,6 +1,6 @@
 {
   "name": "com.mariosep.blackboard",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "displayName": "Blackboard",
   "description": "Blackboard to store facts, actors, items and events.",
   "author": {
@@ -9,6 +9,6 @@
     "url": "https://gitlab.com/mariosep28"
   },
   "dependencies": {
-    "net.tnrd.serializableinterface": "https://github.com/Thundernerd/Unity3D-SerializableInterface.git"
+    "com.unity.addressables": "1.21.19"
  }
 }
