@@ -1,9 +1,7 @@
-﻿using System;
-using Blackboard.Facts;
+﻿using Blackboard.Facts;
 
 namespace Blackboard.Requirement
 {
-    [Serializable]
     public class IntFactCondition : FactCondition
     {
         private IntFactSO intFact;

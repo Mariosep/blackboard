@@ -1,9 +1,7 @@
-﻿using System;
-using Blackboard.Facts;
+﻿using Blackboard.Facts;
 
 namespace Blackboard.Requirement
 {
-    [Serializable]
     public class FloatFactCondition : FactCondition
     {
         private FloatFactSO floatFact;

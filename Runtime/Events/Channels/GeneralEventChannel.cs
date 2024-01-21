@@ -7,6 +7,5 @@ namespace Blackboard.Events
 	 	public Action onLevelStarted;
 	 	public Action<int> onLevelUp;
 	 	public Action<int> onScoreIncreased;
-	 	public Action<int> onGamePaused;
     }
 }

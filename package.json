@@ -1,6 +1,6 @@
 {
   "name": "com.mariosep.blackboard",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "displayName": "Blackboard",
   "description": "Blackboard to store facts, actors, items and events.",
   "author": {
