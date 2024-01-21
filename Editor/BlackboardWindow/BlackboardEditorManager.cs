@@ -1,164 +1,124 @@
 using System.Collections.Generic;
+using Blackboard.Actors;
+using Blackboard.Events;
+using Blackboard.Facts;
+using Blackboard.Items;
 using UnityEditor;
 using UnityEditorForks;
 
-public class BlackboardEditorManager : ScriptableSingleton<BlackboardEditorManager>
+namespace Blackboard.Editor
 {
-    private BlackboardSO _blackboard;
-
-    public BlackboardSO Blackboard
+    public class BlackboardEditorManager : ScriptableSingleton<BlackboardEditorManager>
     {
-        get
+        private BlackboardSO _blackboard;
+
+        public BlackboardSO Blackboard
         {
-            if (_blackboard == null)
+            get
             {
-                List<BlackboardSO> assetsList = typeof(BlackboardSO).FindAssetsByType<BlackboardSO>();
-                if (assetsList.Count > 0)
-                    _blackboard = assetsList[0];
-            }
+                if (_blackboard == null)
+                {
+                    List<BlackboardSO> assetsList = typeof(BlackboardSO).FindAssetsByType<BlackboardSO>();
+                    if (assetsList.Count > 0)
+                        _blackboard = assetsList[0];
+                }
                 
-            return _blackboard;
+                return _blackboard;
+            }
+            set => _blackboard = value;
         }
 
-        set => _blackboard = value;
-    }
-
-    public FactDataBaseSO FactDataBase => Blackboard.factDataBase;
-    public EventDataBaseSO EventDataBase => Blackboard.eventDataBase;
-    public ActorDataBaseSO ActorDataBase => Blackboard.actorDataBase;
-    public ItemDataBaseSO ItemDataBase => Blackboard.itemDataBase;
-    
-    /*public bool? GetBool(string categoryId, string factId)
-    {
-        if (BlackboardDataBase. TryGetBlackboard(categoryId, out BlackboardSO blackboard))
+        public FactDataBaseSO FactDataBase => Blackboard.factDataBase;
+        public EventDataBase EventDataBase => Blackboard.EventDataBase;
+        public ActorDataBaseSO ActorDataBase => Blackboard.actorDataBase;
+        public ItemDataBaseSO ItemDataBase => Blackboard.itemDataBase;
+        
+        public string GetElementPath(BlackboardElementSO element)
         {
-            return blackboard.GetBool(factId);
-        }
-
-        return null;
-    }*/
-
-    public string GetElementPath(BlackboardElementSO element)
-    {
-        switch (element)
-        {
-            case FactSO factSo:
-                return GetFactPath(factSo.groupId, factSo.id);
+            ElementGroupSO group = element.group;
             
-            case EventSO eventSo:
-                return GetEventPath(eventSo.groupId, eventSo.id);
-                
-            case ActorSO actorSo:
-                return GetActorPath(actorSo.groupId, actorSo.id);
-
-            case ItemSO itemSo:
-                return GetItemPath(itemSo.groupId, itemSo.id);
+            if(element is BaseEventSO eventSo)
+                return eventSo.GetName();
+            else
+                return $"{group.groupName}: {element.Name}";
         }
-
-        return null;
-    }
     
-    public FactSO GetFact(string groupId, string factId)
-    {
-        if (FactDataBase.TryGetGroup(groupId, out FactGroupSO factGroup))
+        public FactSO GetFact(string groupId, string factId)
         {
-            if (factGroup.TryGetElement(factId, out FactSO fact))
+            if (FactDataBase.TryGetGroup(groupId, out FactGroupSO factGroup))
             {
-                return fact;                                    
+                if (factGroup.TryGetElement(factId, out FactSO fact))
+                {
+                    return fact;                                    
+                }
             }
+
+            return null;
         }
 
-        return null;
-    }
-
-    public string GetFactPath(string groupId, string factId)
-    {
-        if (FactDataBase.TryGetGroup(groupId, out FactGroupSO factGroup))
+        public string GetFactPath(string groupId, string factId)
         {
-            if (factGroup.TryGetElement(factId, out FactSO fact))
+            if (FactDataBase.TryGetGroup(groupId, out FactGroupSO factGroup))
             {
-                return $"{factGroup.groupName}: {fact.theName}";                                    
+                if (factGroup.TryGetElement(factId, out FactSO fact))
+                {
+                    return $"{factGroup.groupName}: {fact.Name}";                                    
+                }
             }
-        }
 
-        return "";
-    }
+            return "";
+        }
     
-    public EventSO GetEvent(string groupId, string eventId)
-    {
-        if (EventDataBase.TryGetGroup(groupId, out EventGroupSO eventGroup))
+        public ActorSO GetActor(string groupId, string id)
         {
-            if (eventGroup.TryGetElement(eventId, out EventSO eventSo))
+            if (ActorDataBase.TryGetGroup(groupId, out ActorGroupSO actorGroup))
             {
-                return eventSo;                                    
+                if (actorGroup.TryGetElement(id, out ActorSO actor))
+                {
+                    return actor;                                    
+                }
             }
+
+            return null;
         }
 
-        return null;
-    }
+        public string GetActorPath(string groupId, string id)
+        {
+            if (ActorDataBase.TryGetGroup(groupId, out ActorGroupSO actorGroup))
+            {
+                if (actorGroup.TryGetElement(id, out ActorSO actor))
+                {
+                    return $"{actorGroup.groupName}: {actor.Name}";                                    
+                }
+            }
+
+            return "";
+        }
     
-    public string GetEventPath(string groupId, string eventId)
-    {
-        if (EventDataBase.TryGetGroup(groupId, out EventGroupSO eventGroup))
+        public ItemSO GetItem(string groupId, string id)
         {
-            if (eventGroup.TryGetElement(eventId, out EventSO eventSO))
+            if (ItemDataBase.TryGetGroup(groupId, out ItemGroupSO itemGroup))
             {
-                return $"{eventGroup.groupName}: {eventSO.theName}";                                    
+                if (itemGroup.TryGetElement(id, out ItemSO item))
+                {
+                    return item;                                    
+                }
             }
+
+            return null;
         }
 
-        return "";
-    }
-    
-    public ActorSO GetActor(string groupId, string id)
-    {
-        if (ActorDataBase.TryGetGroup(groupId, out ActorGroupSO actorGroup))
+        public string GetItemPath(string groupId, string id)
         {
-            if (actorGroup.TryGetElement(id, out ActorSO actor))
+            if (ItemDataBase.TryGetGroup(groupId, out ItemGroupSO itemGroup))
             {
-                return actor;                                    
+                if (itemGroup.TryGetElement(id, out ItemSO item))
+                {
+                    return $"{itemGroup.groupName}: {item.Name}";                                    
+                }
             }
+
+            return "";
         }
-
-        return null;
-    }
-
-    public string GetActorPath(string groupId, string id)
-    {
-        if (ActorDataBase.TryGetGroup(groupId, out ActorGroupSO actorGroup))
-        {
-            if (actorGroup.TryGetElement(id, out ActorSO actor))
-            {
-                return $"{actorGroup.groupName}: {actor.theName}";                                    
-            }
-        }
-
-        return "";
-    }
-    
-    public ItemSO GetItem(string groupId, string id)
-    {
-        if (ItemDataBase.TryGetGroup(groupId, out ItemGroupSO itemGroup))
-        {
-            if (itemGroup.TryGetElement(id, out ItemSO item))
-            {
-                return item;                                    
-            }
-        }
-
-        return null;
-    }
-
-    public string GetItemPath(string groupId, string id)
-    {
-        if (ItemDataBase.TryGetGroup(groupId, out ItemGroupSO itemGroup))
-        {
-            if (itemGroup.TryGetElement(id, out ItemSO item))
-            {
-                return $"{itemGroup.groupName}: {item.theName}";                                    
-            }
-        }
-
-        return "";
     }
 }

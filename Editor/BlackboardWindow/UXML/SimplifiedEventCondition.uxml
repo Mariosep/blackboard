@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Blackboard/Scripts/Editor/BlackboardWindow/USS/CollectionStyle.uss?fileID=7433441132597879392&amp;guid=c2261c0312236134fb5a64d772013eb3&amp;type=3#CollectionStyle" />
+    <ui:VisualElement name="condition-content" style="flex-grow: 1; flex-direction: column; margin-bottom: 2px; margin-top: 2px;">
+        <ui:VisualElement name="event-type" style="flex-grow: 1; flex-direction: row;">
+            <ui:Toggle focusable="false" style="display: none;" />
+            <ui:Label tabindex="-1" text="Event" parse-escape-sequences="true" display-tooltip-when-elided="true" name="event__label" style="margin-bottom: 4px; font-size: 13px; margin-right: 8px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="params-content" style="flex-grow: 1;" />
+    </ui:VisualElement>
+</ui:UXML>

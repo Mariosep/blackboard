@@ -17,8 +17,8 @@
     color: rgb(210, 210, 210);
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 #requirements-root {
@@ -26,6 +26,8 @@
     margin-right: 0;
     margin-bottom: 5px;
     margin-left: 0;
+    min-width: 200px;
+    flex-grow: 1;
 }
 
 #requirements__content {
@@ -63,8 +65,8 @@
     color: rgb(210, 210, 210);
     margin-left: 5px;
     margin-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .collection__header {

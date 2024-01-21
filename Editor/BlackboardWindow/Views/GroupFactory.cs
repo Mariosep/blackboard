@@ -1,100 +1,106 @@
+using Blackboard.Actors;
+using Blackboard.Facts;
+using Blackboard.Items;
 using UnityEditor;
 using UnityEngine;
 
-public static class GroupFactory
+namespace Blackboard.Editor
 {
-    public static ScriptableObject CreateGroup(string groupName, BlackboardElementType type, string id = null)
+    public static class GroupFactory
     {
-        ScriptableObject group;
-        
-        switch (type)
+        public static ScriptableObject CreateGroup(string groupName, BlackboardElementType type, string id = null)
         {
-            case BlackboardElementType.Fact:
-                group = CreateFactGroup(groupName, id);
-                break;
+            ScriptableObject group;
+        
+            switch (type)
+            {
+                case BlackboardElementType.Fact:
+                    group = CreateFactGroup(groupName, id);
+                    break;
                 
-            case BlackboardElementType.Event:
-                group = CreateEventGroup(groupName, id);
-                break;
+                /*case BlackboardElementType.Event:
+                    group = CreateEventGroup(groupName, id);
+                    break;*/
             
-            case BlackboardElementType.Actor:
-                group = CreateActorGroup(groupName, id);
-                break;
+                case BlackboardElementType.Actor:
+                    group = CreateActorGroup(groupName, id);
+                    break;
 
-            case BlackboardElementType.Item:
-                group = CreateItemGroup(groupName, id);
-                break;
+                case BlackboardElementType.Item:
+                    group = CreateItemGroup(groupName, id);
+                    break;
             
-            default:
-                return null;
+                default:
+                    return null;
+            }
+        
+            group.hideFlags = HideFlags.HideInHierarchy;
+
+            return group;
         }
+    
+        public static FactGroupSO CreateFactGroup(string groupName, string id = null)
+        {
+            FactGroupSO factGroup = ScriptableObject.CreateInstance<FactGroupSO>();
         
-        group.hideFlags = HideFlags.HideInHierarchy;
+            factGroup.groupName = groupName;
+        
+            if(id != null)
+                factGroup.id = id;
+            else
+                factGroup.id = GUID.Generate().ToString();
 
-        return group;
-    }
+            factGroup.name = $"factGroup-{factGroup.id}";
+        
+            return factGroup;
+        }
     
-    public static FactGroupSO CreateFactGroup(string groupName, string id = null)
-    {
-        FactGroupSO factGroup = ScriptableObject.CreateInstance<FactGroupSO>();
+        /*public static EventGroupSO CreateEventGroup(string groupName, string id = null)
+        {
+            EventGroupSO eventGroup = ScriptableObject.CreateInstance<EventGroupSO>();
         
-        factGroup.groupName = groupName;
+            eventGroup.groupName = groupName;
         
-        if(id != null)
-            factGroup.id = id;
-        else
-            factGroup.id = GUID.Generate().ToString();
-
-        factGroup.name = $"factGroup-{factGroup.id}";
+            if(id != null)
+                eventGroup.id = id;
+            else
+                eventGroup.id = GUID.Generate().ToString();
         
-        return factGroup;
-    }
+            eventGroup.name = $"eventGroup-{eventGroup.id}";
+        
+            return eventGroup;
+        }*/
     
-    public static EventGroupSO CreateEventGroup(string groupName, string id = null)
-    {
-        EventGroupSO eventGroup = ScriptableObject.CreateInstance<EventGroupSO>();
+        public static ActorGroupSO CreateActorGroup(string groupName, string id = null)
+        {
+            ActorGroupSO actorGroup = ScriptableObject.CreateInstance<ActorGroupSO>();
         
-        eventGroup.groupName = groupName;
+            actorGroup.groupName = groupName;
         
-        if(id != null)
-            eventGroup.id = id;
-        else
-            eventGroup.id = GUID.Generate().ToString();
+            if(id != null)
+                actorGroup.id = id;
+            else
+                actorGroup.id = GUID.Generate().ToString();
         
-        eventGroup.name = $"eventGroup-{eventGroup.id}";
+            actorGroup.name = $"actorGroup-{actorGroup.id}";
         
-        return eventGroup;
-    }
+            return actorGroup;
+        }
     
-    public static ActorGroupSO CreateActorGroup(string groupName, string id = null)
-    {
-        ActorGroupSO actorGroup = ScriptableObject.CreateInstance<ActorGroupSO>();
+        public static ItemGroupSO CreateItemGroup(string groupName, string id = null)
+        {
+            ItemGroupSO itemGroup = ScriptableObject.CreateInstance<ItemGroupSO>();
         
-        actorGroup.groupName = groupName;
+            itemGroup.groupName = groupName;
         
-        if(id != null)
-            actorGroup.id = id;
-        else
-            actorGroup.id = GUID.Generate().ToString();
+            if(id != null)
+                itemGroup.id = id;
+            else
+                itemGroup.id = GUID.Generate().ToString();
         
-        actorGroup.name = $"actorGroup-{actorGroup.id}";
+            itemGroup.name = $"itemGroup-{itemGroup.id}";
         
-        return actorGroup;
-    }
-    
-    public static ItemGroupSO CreateItemGroup(string groupName, string id = null)
-    {
-        ItemGroupSO itemGroup = ScriptableObject.CreateInstance<ItemGroupSO>();
-        
-        itemGroup.groupName = groupName;
-        
-        if(id != null)
-            itemGroup.id = id;
-        else
-            itemGroup.id = GUID.Generate().ToString();
-        
-        itemGroup.name = $"itemGroup-{itemGroup.id}";
-        
-        return itemGroup;
+            return itemGroup;
+        }
     }
 }

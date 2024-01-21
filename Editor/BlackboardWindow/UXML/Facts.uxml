@@ -1,6 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <GroupHeaderView />
-    <ui:VisualElement name="facts__container" class="facts__container" />
+    <Blackboard.Editor.GroupHeaderView />
+    <ui:VisualElement name="facts__container" class="facts__container">
+        <Blackboard.Editor.Facts.FactsListView />
+    </ui:VisualElement>
     <ui:VisualElement name="facts__buttons" class="blackboard__buttons" style="flex-shrink: 0;">
         <ui:Button text="-" display-tooltip-when-elided="true" name="remove-fact__button" class="blackboard__button" />
         <ui:Button text="+" display-tooltip-when-elided="true" name="add-fact__button" class="blackboard__button" />

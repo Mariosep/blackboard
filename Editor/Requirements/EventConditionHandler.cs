@@ -1,26 +1,25 @@
-﻿public class EventConditionHandler : ConditionHandler
+﻿using Blackboard.Events;
+using Blackboard.Requirement;
+
+namespace Blackboard.Editor.Requirement
 {
-    private EventConditionSO eventCondition;
-    
-    public EventConditionHandler(EventConditionSO eventCondition)
+    public class EventConditionHandler : ConditionHandler
     {
-        this.eventCondition = eventCondition;
-        
-        type = ConditionType.Event;
-    }
+        private EventConditionSO eventCondition;
     
-    public override void SetElement(BlackboardElementSO elementSelected)
-    {
-        var eventSelected = elementSelected as EventSO;
-        
-        if (eventCondition.eventSo == null || eventCondition.eventSo.type != eventSelected.type)
+        public EventConditionHandler(EventConditionSO eventCondition)
         {
-            eventCondition.eventSo = eventSelected;
-            onValueTypeChanged?.Invoke();
+            this.eventCondition = eventCondition;
+        
+            type = ConditionType.Event;
         }
-        else
+    
+        public override void SetElement(BlackboardElementSO elementSelected)
         {
-            eventCondition.eventSo = eventSelected;
+            var eventSelected = elementSelected as BaseEventSO;
+        
+            eventCondition.eventRequired = eventSelected;
+            onValueTypeChanged?.Invoke();
         }
     }
 }

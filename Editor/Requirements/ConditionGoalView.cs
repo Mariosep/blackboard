@@ -1,6 +1,10 @@
-﻿using UnityEngine.UIElements;
+﻿using Blackboard.Requirement;
+using UnityEngine.UIElements;
 
-public abstract class ConditionGoalView : VisualElement
+namespace Blackboard.Editor.Requirement
 {
-    public abstract void BindCondition(ConditionSO condition);
+    public abstract class ConditionGoalView : VisualElement
+    {
+        public abstract void BindCondition(ConditionSO condition);
+    }
 }

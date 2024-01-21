@@ -1,96 +1,59 @@
-using UnityEditor;
-using UnityEditor.UIElements;
+using Blackboard.Facts;
 using UnityEngine.UIElements;
 
-public static class FactValueViewFactory
+namespace Blackboard.Editor.Facts
 {
-    public static VisualElement CreateValueView(FactSO fact)
+    public static class FactValueViewFactory
     {
-        return fact switch
+        public static VisualElement CreateValueView(FactSO fact)
         {
-            BoolFactSO bFact => CreateToggle(bFact),
-            IntFactSO iFact => CreateIntegerField(iFact),
-            FloatFactSO fFact => CreateFloatField(fFact),
-            StringFactSO sFact => CreateTextField(sFact),
-            _ => new VisualElement()
-        };
-    }
-    
-    public static TextField CreateTextField(StringFactSO fact)
-    {
-        var serializedObject = new SerializedObject(fact);
-        var valueProperty = serializedObject.FindProperty("_value");
-        
-        var textField = new TextField("");
-        textField.value = fact.Value;
-        textField.BindProperty(valueProperty);
+            return fact switch
+            {
+                BoolFactSO bFact => CreateToggle(bFact),
+                IntFactSO iFact => CreateIntegerField(iFact),
+                FloatFactSO fFact => CreateFloatField(fFact),
+                StringFactSO sFact => CreateTextField(sFact),
+                _ => new VisualElement()
+            };
+        }
 
-        textField.RegisterCallback<FocusOutEvent>(_ =>
+        private static VisualElement CreateTextField(StringFactSO fact)
         {
-            textField.value = textField.value.Trim();
-            fact.Value = textField.value;
-        });
-        
-        return textField;
-    }
-    
-    public static IntegerField CreateIntegerField(IntFactSO fact)
-    {
-        var serializedObject = new SerializedObject(fact);
-        var valueProperty = serializedObject.FindProperty("_value");
-        
-        var integerField = new IntegerField("");
-        integerField.value = fact.Value;
-        integerField.BindProperty(valueProperty);
+            var textFieldItem = new TextFieldItem("_value");
+            textFieldItem.SetDataSource(fact);
+            textFieldItem.textField.RegisterValueChangedCallback(e =>
+                BlackboardValidator.ValidateAndSetValue(e.newValue, fact));
+            return textFieldItem;
+        }
 
-        integerField.RegisterValueChangedCallback(e =>
+        private static VisualElement CreateIntegerField(IntFactSO fact)
         {
-            if(e.previousValue == e.newValue)
-                return;
-            
-            fact.Value = e.newValue;
-        });
+            var integerFieldItem = new IntegerFieldItem("_value");
+            integerFieldItem.SetDataSource(fact);
+            integerFieldItem.integerField.RegisterValueChangedCallback(e =>
+                BlackboardValidator.ValidateAndSetValue(e.newValue, fact));
         
-        return integerField;
-    }
-    
-    public static FloatField CreateFloatField(FloatFactSO fact)
-    {
-        var serializedObject = new SerializedObject(fact);
-        var valueProperty = serializedObject.FindProperty("_value");
-        
-        var floatField = new FloatField("");
-        floatField.value = fact.Value;
-        floatField.BindProperty(valueProperty);
+            return integerFieldItem;
+        }
 
-        floatField.RegisterValueChangedCallback(e =>
+        private static VisualElement CreateFloatField(FloatFactSO fact)
         {
-            if(e.previousValue == e.newValue)
-                return;
-            
-            fact.Value = e.newValue;
-        });
+            var floatFieldItem = new FloatFieldItem("_value");
+            floatFieldItem.SetDataSource(fact);
+            floatFieldItem.floatField.RegisterValueChangedCallback(e =>
+                BlackboardValidator.ValidateAndSetValue(e.newValue, fact));
         
-        return floatField;
-    }
-    
-    public static Toggle CreateToggle(BoolFactSO fact)
-    {
-        var serializedObject = new SerializedObject(fact);
-        var valueProperty = serializedObject.FindProperty("_value");
-        
-        var toggle = new Toggle("");
-        toggle.value = fact.Value;
-        toggle.BindProperty(valueProperty);
+            return floatFieldItem;
+        }
 
-        toggle.RegisterValueChangedCallback(e =>
+        private static VisualElement CreateToggle(BoolFactSO fact)
         {
-            if(e.previousValue == e.newValue)
-                return;
-            
-            fact.Value = e.newValue;
-        });
+            var toggleItem = new ToggleItem("_value");
+            toggleItem.SetDataSource(fact);
+            toggleItem.toggle.RegisterValueChangedCallback(e =>
+                BlackboardValidator.ValidateAndSetValue(e.newValue, fact));
         
-        return toggle;
+            return toggleItem;
+        }
     }
 }

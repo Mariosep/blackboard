@@ -1,56 +1,80 @@
+using Blackboard.Actors;
+using Blackboard.Facts;
+using Blackboard.Items;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
-public class BlackboardManager : MonoBehaviour
+namespace Blackboard
 {
-    public BlackboardSO blackboardDatabase;
-    
-    private void Awake()
+    public static class BlackboardManager
     {
-        ServiceLocator.Register(this);
-    }
+        private static BlackboardSO _blackboardDataBase;
 
-    public BoolFactSO GetBoolFact(string factName)
-    {
-        return blackboardDatabase.GetBoolFactByName(factName);
-    }
-    
-    public IntFactSO GetIntFact(string factName)
-    {
-        return blackboardDatabase.GetIntFactByName(factName);
-    }
-    
-    public FloatFactSO GetFloatFact(string factName)
-    {
-        return blackboardDatabase.GetFloatFactByName(factName);
-    }
-    
-    public StringFactSO GetStringFact(string factName)
-    {
-        return blackboardDatabase.GetStringFactByName(factName);
-    }
-    
-    public ActorSO GetActor(string actorName)
-    {
-        return blackboardDatabase.GetActorByName(actorName);
-    }
-    
-    public ItemSO GetItem(string itemName)
-    {
-        return blackboardDatabase.GetItemByName(itemName);
-    }
-    
-    public EventSO GetEvent(string eventName)
-    {
-        return blackboardDatabase.GetEventByName(eventName);
-    }
+        public static BlackboardSO BlackboardDataBase
+        {
+            get
+            {
+                if (_blackboardDataBase == null)
+                    LoadBlackboardAsset();
 
-    public EventItemSO GetEventItem(string eventName)
-    {
-        return blackboardDatabase.GetEventItemByName(eventName);
-    }
+                return _blackboardDataBase;
+            }
+        }
+
+        public static FactDataBaseSO FactDataBase => BlackboardDataBase.factDataBase;
+        public static ActorDataBaseSO ActorDataBase => BlackboardDataBase.actorDataBase;
+        public static ItemDataBaseSO ItemDataBase => BlackboardDataBase.itemDataBase;
+                
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static async void LoadBlackboardAsset()
+        {
+            var handle = Addressables.LoadAssetAsync<BlackboardSO>("Blackboard");
+            BlackboardSO blackboard = await handle.Task;
+
+            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+                _blackboardDataBase = blackboard;
+            else
+                Debug.LogError("Failed to load asset: Blackboard");
+        }
+        
+        public static BoolFactSO GetBoolFact(string factName)
+        {
+            return BlackboardDataBase.GetBoolFactByName(factName);
+        }
     
-    public EventActorSO GetEventActor(string eventName)
-    {
-        return blackboardDatabase.GetEventActorByName(eventName);
+        public static IntFactSO GetIntFact(string factName)
+        {
+            return BlackboardDataBase.GetIntFactByName(factName);
+        }
+    
+        public static FloatFactSO GetFloatFact(string factName)
+        {
+            return BlackboardDataBase.GetFloatFactByName(factName);
+        }
+    
+        public static StringFactSO GetStringFact(string factName)
+        {
+            return BlackboardDataBase.GetStringFactByName(factName);
+        }
+    
+        public static ActorSO GetActor(string actorName)
+        {
+            return BlackboardDataBase.GetActorByName(actorName);
+        }
+    
+        public static ItemSO GetItem(string itemName)
+        {
+            return BlackboardDataBase.GetItemByName(itemName);
+        }
+        
+        public static void SaveState()
+        {
+            BlackboardDataBase.SaveState();
+        }
+    
+        public static void RevertChanges()
+        {
+            BlackboardDataBase.RevertChanges();
+        }
     }
 }

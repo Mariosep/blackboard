@@ -1,46 +1,49 @@
 using UnityEngine.UIElements;
 
-public static class GroupValidator
+namespace Blackboard.Editor
 {
-    public static bool Validate(string groupName, VisualElement inputText, Label validationlabel, BlackboardElementType blackboardElementType)
+    public static class GroupValidator
     {
-        if (groupName == "")
+        public static bool Validate(string groupName, VisualElement inputText, Label validationlabel, BlackboardElementType blackboardElementType)
         {
-            inputText.AddToClassList("input--invalid");
-            validationlabel.text = "Group name can't be empty";
+            if (groupName == "")
+            {
+                inputText.AddToClassList("input--invalid");
+                validationlabel.text = "Group name can't be empty";
                         
-            return false;
-        }
+                return false;
+            }
 
-        bool groupExists = false;
+            bool groupExists = false;
         
-        switch (blackboardElementType)
-        {
-            case BlackboardElementType.Fact:
-                groupExists = BlackboardEditorManager.instance.FactDataBase.GroupExists(groupName);
-                break;
+            switch (blackboardElementType)
+            {
+                case BlackboardElementType.Fact:
+                    groupExists = BlackboardEditorManager.instance.FactDataBase.GroupExists(groupName);
+                    break;
             
-            case BlackboardElementType.Event:
-                groupExists = BlackboardEditorManager.instance.EventDataBase.GroupExists(groupName);
-                break;
+                case BlackboardElementType.Event:
+                    //groupExists = BlackboardEditorManager.instance.EventDataBase.GroupExists(groupName);
+                    break;
             
-            case BlackboardElementType.Actor:
-                groupExists = BlackboardEditorManager.instance.ActorDataBase.GroupExists(groupName);
-                break;
+                case BlackboardElementType.Actor:
+                    groupExists = BlackboardEditorManager.instance.ActorDataBase.GroupExists(groupName);
+                    break;
             
-            case BlackboardElementType.Item:
-                groupExists = BlackboardEditorManager.instance.ItemDataBase.GroupExists(groupName);
-                break;
-        }
+                case BlackboardElementType.Item:
+                    groupExists = BlackboardEditorManager.instance.ItemDataBase.GroupExists(groupName);
+                    break;
+            }
 
-        if (groupExists)
-        {
-            inputText.AddToClassList("input--invalid");
-            validationlabel.text = "Group name already exists";
+            if (groupExists)
+            {
+                inputText.AddToClassList("input--invalid");
+                validationlabel.text = "Group name already exists";
                         
-            return false;
-        }
+                return false;
+            }
 
-        return true;
+            return true;
+        }
     }
 }

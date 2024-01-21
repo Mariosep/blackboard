@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="param-content" style="flex-grow: 1; flex-direction: row; margin-left: 5px;">
+        <ui:Label tabindex="-1" text="ParamName" parse-escape-sequences="true" display-tooltip-when-elided="true" name="param-name__label" style="margin-right: 2px; white-space: normal; max-width: 120px;" />
+        <ui:Label tabindex="-1" text="==" parse-escape-sequences="true" display-tooltip-when-elided="true" name="comparison-operator__label" style="margin-right: 2px; margin-left: 2px;" />
+        <ui:Label tabindex="-1" text="ParamValue" parse-escape-sequences="true" display-tooltip-when-elided="true" name="param-value__label" />
+    </ui:VisualElement>
+</ui:UXML>

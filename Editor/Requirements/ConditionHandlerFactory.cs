@@ -1,17 +1,22 @@
-﻿public static class ConditionHandlerFactory
+﻿using Blackboard.Requirement;
+
+namespace Blackboard.Editor.Requirement
 {
-    public static ConditionHandler CreateConditionHandler(ConditionSO condition)
+    public static class ConditionHandlerFactory
     {
-        switch (condition.type)
+        public static ConditionHandler CreateConditionHandler(ConditionSO condition)
         {
-            case ConditionType.Fact:
-                return new FactConditionHandler(condition as FactConditionSO);
+            switch (condition.type)
+            {
+                case ConditionType.Fact:
+                    return new FactConditionHandler(condition as FactConditionSO);
             
-            case ConditionType.Event:
-                return new EventConditionHandler(condition as EventConditionSO);
+                case ConditionType.Event:
+                    return new EventConditionHandler(condition as EventConditionSO);
             
-            default:
-                return null;
+                default:
+                    return null;
+            }
         }
     }
 }

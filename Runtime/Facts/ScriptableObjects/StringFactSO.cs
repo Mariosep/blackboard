@@ -1,26 +1,31 @@
 using System;
+using Unity.Properties;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StringFactSO", menuName = "Blackboard/Facts/String")]
-public class StringFactSO : FactSO
+namespace Blackboard.Facts
 {
-    public Action<string> onValueChanged;
+    [CreateAssetMenu(fileName = "StringFactSO", menuName = "Blackboard/Facts/String")]
+    public class StringFactSO : FactSO
+    {
+        public Action<string> onValueChanged;
 
-    [SerializeField] private string _value;
+        [SerializeField, DontCreateProperty] private string _value;
     
-    public string Value
-    {
-        get => _value;
-        set
+        [CreateProperty]
+        public string Value
         {
-            _value = value;
-            onValueChanged?.Invoke(value);
+            get => _value;
+            set
+            {
+                _value = value;
+                onValueChanged?.Invoke(value);
+            }
         }
-    }
     
-    public override void OnEnable()
-    {
-        base.OnEnable();
-        type = FactType.String;
+        public override void OnEnable()
+        {
+            base.OnEnable();
+            type = FactType.String;
+        }
     }
 }

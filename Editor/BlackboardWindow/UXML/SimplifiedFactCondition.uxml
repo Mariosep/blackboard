@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Blackboard/Scripts/Editor/BlackboardWindow/USS/CollectionStyle.uss?fileID=7433441132597879392&amp;guid=c2261c0312236134fb5a64d772013eb3&amp;type=3#CollectionStyle" />
+    <ui:VisualElement name="condition-content" style="flex-grow: 1; flex-direction: row; margin-bottom: 2px; margin-top: 2px;">
+        <ui:Toggle focusable="false" style="display: none;" />
+        <ui:Label tabindex="-1" text="Fact" parse-escape-sequences="true" display-tooltip-when-elided="true" name="fact__label" style="margin-bottom: 4px; margin-right: 2px; max-width: 120px; white-space: normal;" />
+        <ui:Label tabindex="-1" text="==" parse-escape-sequences="true" display-tooltip-when-elided="true" name="comparison-operator__label" style="margin-right: 2px; margin-left: 2px;" />
+        <ui:Label tabindex="-1" text="Fact" parse-escape-sequences="true" display-tooltip-when-elided="true" name="value__label" style="margin-bottom: 4px;" />
+    </ui:VisualElement>
+</ui:UXML>

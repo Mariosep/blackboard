@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Blackboard/Scripts/Editor/BlackboardWindow/USS/GeneralStyles.uss?fileID=7433441132597879392&amp;guid=1e0b12837aed11a4d92fe9420aedfcd0&amp;type=3#GeneralStyles" />
+    <ui:VisualElement name="events-log-header" class="section-header" style="flex-grow: 0;">
+        <ui:Label tabindex="-1" text="Simulate Event" display-tooltip-when-elided="true" name="events-log-title" class="tittle" />
+    </ui:VisualElement>
+    <ui:VisualElement name="event-container" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; max-width: 400px; align-items: stretch;">
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="event-name" style="font-size: 15px;" />
+        <ui:VisualElement name="arguments-container" style="flex-grow: 1; max-width: 300px; margin-left: 5px; margin-top: 10px; margin-bottom: 5px;" />
+        <ui:Button text="Invoke" parse-escape-sequences="true" display-tooltip-when-elided="true" name="invoke" style="width: 60px; height: 30px; align-items: center; align-self: flex-end;" />
+    </ui:VisualElement>
+</ui:UXML>

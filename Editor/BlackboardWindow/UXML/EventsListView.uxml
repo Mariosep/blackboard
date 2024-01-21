@@ -2,8 +2,8 @@
     <ui:MultiColumnListView binding-path="facts" selection-type="Multiple" virtualization-method="DynamicHeight" show-bound-collection-size="true" sorting-enabled="false" reorderable="true" reorder-mode="Animated">
         <ui:Columns>
             <ui:Column name="name" title="Name" stretchable="true" />
+            <ui:Column name="parameters" title="Parameters" stretchable="true" />
             <ui:Column name="description" title="Description" stretchable="true" />
-            <ui:Column name="type" title="Type" width="80" />
         </ui:Columns>
     </ui:MultiColumnListView>
 </ui:UXML>

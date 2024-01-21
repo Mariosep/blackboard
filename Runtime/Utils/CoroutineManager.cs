@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 
-public class CoroutineManager : Singleton<CoroutineManager>
+namespace Blackboard.Utils
 {
-    public void StartCoroutineFromManager(IEnumerator coroutine)
+    public class CoroutineManager : Singleton<CoroutineManager>
     {
-        StartCoroutine(coroutine);
+        public void StartCoroutineFromManager(IEnumerator coroutine)
+        {
+            StartCoroutine(coroutine);
+        }
     }
 }

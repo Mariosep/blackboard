@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Blackboard.Editor.SplitView orientation="Vertical" fixed-pane-initial-dimension="400">
+        <Blackboard.Editor.Events.EventsView style="min-height: 100px; flex-grow: 1;" />
+        <Blackboard.Editor.SplitView tabindex="0" fixed-pane-index="1" style="min-height: 150px; flex-grow: 0; height: 200px;">
+            <Blackboard.Editor.Events.EventToSimulateView style="min-height: 150px; width: 50%; min-width: 50%;" />
+            <Blackboard.Editor.Events.EventsLogView style="width: 50%; flex-grow: 0; min-width: 50%;" />
+        </Blackboard.Editor.SplitView>
+    </Blackboard.Editor.SplitView>
+</ui:UXML>

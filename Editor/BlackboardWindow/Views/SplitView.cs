@@ -1,6 +1,9 @@
 using UnityEngine.UIElements;
 
-public class SplitView : TwoPaneSplitView
+namespace Blackboard.Editor
 {
-    public new class UxmlFactory : UxmlFactory<SplitView, UxmlTraits> { }
+    public class SplitView : TwoPaneSplitView
+    {
+        public new class UxmlFactory : UxmlFactory<SplitView, UxmlTraits> { }
+    }
 }

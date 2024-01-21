@@ -1,26 +1,32 @@
-﻿public class FactConditionHandler : ConditionHandler
-{
-    private FactConditionSO factCondition;
+﻿using Blackboard.Facts;
+using Blackboard.Requirement;
 
-    public FactConditionHandler(FactConditionSO factCondition)
+namespace Blackboard.Editor.Requirement
+{
+    public class FactConditionHandler : ConditionHandler
     {
-        this.factCondition = factCondition;
-        
-        type = ConditionType.Fact;
-    }
-    
-    public override void SetElement(BlackboardElementSO elementSelected)
-    {
-        var factSelected = elementSelected as FactSO;
-        
-        if (factCondition.fact == null || factCondition.fact.type != factSelected.type)
+        private FactConditionSO factCondition;
+
+        public FactConditionHandler(FactConditionSO factCondition)
         {
-            factCondition.fact = factSelected;
-            onValueTypeChanged?.Invoke();
+            this.factCondition = factCondition;
+        
+            type = ConditionType.Fact;
         }
-        else
+    
+        public override void SetElement(BlackboardElementSO elementSelected)
         {
-            factCondition.fact = factSelected;
+            var factSelected = elementSelected as FactSO;
+        
+            if (factCondition.fact == null || factCondition.fact.type != factSelected.type)
+            {
+                factCondition.fact = factSelected;
+                onValueTypeChanged?.Invoke();
+            }
+            else
+            {
+                factCondition.fact = factSelected;
+            }
         }
     }
 }

@@ -166,8 +166,10 @@
     margin-bottom: 0;
     flex-grow: 1;
     width: auto;
-    max-width: 300px;
+    max-width: 250px;
     min-height: 20px;
+    min-width: 50px;
+    flex-shrink: 1;
 }
 
 .tab-button--selected {
@@ -196,13 +198,3 @@
     padding-left: 14px;
     margin-left: 5px;
 }
-
-/*
-.unity-multi-column-view__cell {
-    border-left-color: rgba(0, 0, 0, 0.42);
-    border-right-color: rgba(0, 0, 0, 0.42);
-    border-top-color: rgba(0, 0, 0, 0.42);
-    border-bottom-color: rgba(0, 0, 0, 0.42);
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-}*/

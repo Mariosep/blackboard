@@ -1,49 +1,60 @@
-﻿using UnityEditor;
+﻿using Blackboard.Requirement;
+using UnityEditor;
 using UnityEngine;
 
-public static class ConditionSOFactory
+namespace Blackboard.Editor.Requirement
 {
-    public static ConditionSO CreateCondition(ConditionType type)
+    public static class ConditionSOFactory
     {
-        switch (type)
+        public static ConditionSO CreateCondition(ConditionType type)
         {
-            case ConditionType.Fact:
-                var factCondition = ScriptableObject.CreateInstance<FactConditionSO>();
-                factCondition.Init(GUID.Generate().ToString());
+            switch (type)
+            {
+                case ConditionType.Fact:
+                    var factCondition = ScriptableObject.CreateInstance<FactConditionSO>();
+                    factCondition.Init(GUID.Generate().ToString());
 
-                return factCondition;
+                    return factCondition;
             
-            case ConditionType.Event:
-                var eventCondition = ScriptableObject.CreateInstance<EventConditionSO>();
-                eventCondition.Init(GUID.Generate().ToString());
+                case ConditionType.Event:
+                    var eventCondition = ScriptableObject.CreateInstance<EventConditionSO>();
+                    eventCondition.Init(GUID.Generate().ToString());
 
-                return eventCondition;
+                    return eventCondition;
             
-            default:
-                return null;
+                default:
+                    return null;
+            }
         }
-    }
     
-    public static ConditionSO CreateCondition(BlackboardElementSO blackboardElement)
-    {
-        switch (blackboardElement.blackboardElementType)
+        public static ConditionSO CreateCondition(BlackboardElementSO blackboardElement)
         {
-            case BlackboardElementType.Fact:
-                var factCondition = ScriptableObject.CreateInstance<FactConditionSO>();
-                factCondition.Init(GUID.Generate().ToString());
-                factCondition.SetElementRequired(blackboardElement);
+            switch (blackboardElement.BlackboardElementType)
+            {
+                case BlackboardElementType.Fact:
+                    var factCondition = ScriptableObject.CreateInstance<FactConditionSO>();
+                    factCondition.Init(GUID.Generate().ToString());
+                    factCondition.SetElementRequired(blackboardElement);
 
-                return factCondition;
+                    return factCondition;
             
-            case BlackboardElementType.Event:
+                case BlackboardElementType.Event:
+                    var eventCondition = ScriptableObject.CreateInstance<EventConditionSO>();
+                    eventCondition.Init(GUID.Generate().ToString());
+                    eventCondition.SetElementRequired(blackboardElement);
+
+                    return eventCondition;
+            
+                /*case BlackboardElementType.New:
                 var eventCondition = ScriptableObject.CreateInstance<EventConditionSO>();
                 eventCondition.Init(GUID.Generate().ToString());
                 eventCondition.SetElementRequired(blackboardElement);
 
-                return eventCondition;
+                return eventCondition;*/
             
-            default:
-                return null;
+                default:
+                    return null;
+            }
         }
     }
 }

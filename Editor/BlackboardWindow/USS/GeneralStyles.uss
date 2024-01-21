@@ -1,0 +1,19 @@
+.tittle {
+    -unity-font-style: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.section-header {
+    background-color: rgba(37, 37, 37, 0.8);
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.propperty {
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

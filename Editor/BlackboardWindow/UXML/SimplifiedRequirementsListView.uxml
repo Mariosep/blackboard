@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Blackboard/Scripts/Editor/BlackboardWindow/USS/CollectionStyle.uss?fileID=7433441132597879392&amp;guid=c2261c0312236134fb5a64d772013eb3&amp;type=3#CollectionStyle" />
+    <Style src="project://database/Assets/Quest%20Designer/Scripts/Editor/USS/ListViewStyles.uss?fileID=7433441132597879392&amp;guid=5da86a4008fd95e4583a788f92d6b429&amp;type=3#ListViewStyles" />
+    <ui:Label tabindex="-1" text="Requirements" parse-escape-sequences="true" display-tooltip-when-elided="true" name="requirements-title" style="-unity-font-style: bold; margin-bottom: 8px; font-size: 13px;" />
+    <ui:ListView name="requirements__content" show-bound-collection-size="false" fixed-item-height="22" focusable="false" virtualization-method="DynamicHeight" show-alternating-row-backgrounds="None" selection-type="None" style="margin-left: 2px;" />
+</ui:UXML>

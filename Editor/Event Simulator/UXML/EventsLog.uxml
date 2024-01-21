@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Blackboard/Scripts/Editor/BlackboardWindow/USS/GeneralStyles.uss?fileID=7433441132597879392&amp;guid=1e0b12837aed11a4d92fe9420aedfcd0&amp;type=3#GeneralStyles" />
+    <ui:VisualElement name="events-log-header" class="section-header" style="flex-grow: 0;">
+        <ui:Label tabindex="-1" text="Events Log" display-tooltip-when-elided="true" name="events-log-title" class="tittle" />
+    </ui:VisualElement>
+    <ui:ListView focusable="true" show-alternating-row-backgrounds="All" virtualization-method="FixedHeight" show-border="false" show-bound-collection-size="true" />
+</ui:UXML>

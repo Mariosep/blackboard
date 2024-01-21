@@ -1,10 +1,14 @@
 ﻿using System;
+using Blackboard.Requirement;
 
-public abstract class ConditionHandler
+namespace Blackboard.Editor.Requirement
 {
-    public System.Action onValueTypeChanged;
+    public abstract class ConditionHandler
+    {
+        public Action onValueTypeChanged;
     
-    public ConditionType type;
+        public ConditionType type;
 
-    public abstract void SetElement(BlackboardElementSO elementSelected);
+        public abstract void SetElement(BlackboardElementSO elementSelected);
+    }
 }

@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <GroupHeaderView />
+    <Blackboard.Editor.GroupHeaderView />
     <ui:VisualElement name="items__container" class="facts__container" />
     <ui:VisualElement name="items__buttons" class="blackboard__buttons" style="flex-shrink: 0;">
         <ui:Button text="-" display-tooltip-when-elided="true" name="remove-item__button" class="blackboard__button" />
